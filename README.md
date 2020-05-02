@@ -10,11 +10,11 @@ SuperTuxKart started as a fork of TuxKart, originally developed by Steve and Oli
 
 > [wikipedia.org/wiki/SuperTuxKart](https://en.wikipedia.org/wiki/SuperTuxKart)
 
-![logo](supertuxkart-logo.png)
+![logo](https://raw.githubusercontent.com/jwestp/docker-supertuxkart/master/supertuxkart-logo.png)
 
 ## How to use this image
 
-The image exposes ports 2759 (server) and 2757 (server discovery). The server should be configured using your own server config file. The config file template can be found [here](server_config.xml). Mount it at `/stk/server_config.xml`:
+The image exposes ports 2759 (server) and 2757 (server discovery). The server should be configured using your own server config file. The config file template can be found [here](https://github.com/jwestp/docker-supertuxkart/blob/master/server_config.xml). Mount it at `/stk/server_config.xml`:
 
 ```
 $ docker run --name my-stk-server \
