@@ -3,7 +3,7 @@
 # -----------
 
 FROM ubuntu:20.04 AS build
-LABEL maintainer=MorphNetwork
+LABEL maintainer=jwestp
 WORKDIR /stk
 
 # Set stk version that should be built
@@ -37,7 +37,7 @@ RUN mkdir stk-code/cmake_build && \
 # -----------
 
 FROM ubuntu:20.04
-LABEL maintainer=MorphNetwork
+LABEL maintainer=jwestp
 WORKDIR /stk
 
 # Install libcurl dependency
