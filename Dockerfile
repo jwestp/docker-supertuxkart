@@ -2,8 +2,8 @@
 # Build stage
 # -----------
 
-FROM ubuntu:18.04 AS build
-LABEL maintainer=jwestp
+FROM ubuntu:20.04 AS build
+LABEL maintainer=MorphNetwork
 WORKDIR /stk
 
 # Set stk version that should be built
@@ -36,8 +36,8 @@ RUN mkdir stk-code/cmake_build && \
 # Final stage
 # -----------
 
-FROM ubuntu:18.04
-LABEL maintainer=jwestp
+FROM ubuntu:20.04
+LABEL maintainer=MorphNetwork
 WORKDIR /stk
 
 # Install libcurl dependency
