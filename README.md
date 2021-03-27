@@ -37,3 +37,8 @@ $ docker run --name my-stk-server \
              -e PASSWORD=mypassword \
              jwestp/supertuxkart:1.1
 ```
+
+### Using docker-compose
+
+Clone this repository and have a look into the `docker-compose.yml` to edit your credentials (username & password). If you want to run a public server without needing a password, you can remove the `environment` section with its corresponding entries.
+After editing, you can get the server up and running by doing a `docker-compose up -d`. Have a look at the logs by using `docker-compose logs` This can be especially useful when searching for bugs.
