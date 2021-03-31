@@ -1,0 +1,13 @@
+version: "3.0"
+services:
+  supertuxkart-server:
+    image: jwestp/supertuxkart:latest
+    restart: unless-stopped
+    volumes:
+      - "./server_config.xml:/stk/server_config.xml"
+    environment:
+      USERNAME: myusername
+      PASSWORD: mypassword
+    ports:
+      - "2757:2757"
+      - "2759:2759"

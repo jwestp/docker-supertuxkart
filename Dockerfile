@@ -2,7 +2,7 @@
 # Build stage
 # -----------
 
-FROM ubuntu:18.04 AS build
+FROM ubuntu:20.04 AS build
 LABEL maintainer=jwestp
 WORKDIR /stk
 
@@ -10,6 +10,7 @@ WORKDIR /stk
 ENV VERSION=1.1
 
 # Install build dependencies
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y build-essential \
                        cmake \
@@ -36,11 +37,12 @@ RUN mkdir stk-code/cmake_build && \
 # Final stage
 # -----------
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 LABEL maintainer=jwestp
 WORKDIR /stk
 
 # Install libcurl dependency
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y libcurl4-openssl-dev && \
     rm -rf /var/lib/apt/lists/*
