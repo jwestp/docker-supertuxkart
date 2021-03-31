@@ -42,7 +42,6 @@ LABEL maintainer=jwestp
 WORKDIR /stk
 
 # Install libcurl dependency
-ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y libcurl4-openssl-dev && \
     rm -rf /var/lib/apt/lists/*
