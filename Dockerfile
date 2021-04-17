@@ -25,7 +25,7 @@ RUN apt-get update && \
 
 # Get code and assets
 RUN git clone --branch ${VERSION} --depth=1 https://github.com/supertuxkart/stk-code.git
-RUN svn checkout https://svn.code.sf.net/p/supertuxkart/code/stk-assets stk-assets
+RUN svn checkout https://svn.code.sf.net/p/supertuxkart/code/stk-assets-release/${VERSION}/ stk-assets
 
 # Build server
 RUN mkdir stk-code/cmake_build && \
@@ -56,3 +56,5 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 # Expose the ports used to find and connect to the server
 EXPOSE 2757
 EXPOSE 2759
+
+ENTRYPOINT ["docker-entrypoint.sh"]
