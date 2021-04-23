@@ -51,10 +51,10 @@ RUN apt-get update && \
 # Copy artifacts from build stage
 COPY --from=build /usr/local/bin/supertuxkart /usr/local/bin
 COPY --from=build /usr/local/share/supertuxkart /usr/local/share/supertuxkart
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY docker-entrypoint.sh docker-entrypoint.sh
 
 # Expose the ports used to find and connect to the server
 EXPOSE 2757
 EXPOSE 2759
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/stk/docker-entrypoint.sh"]
