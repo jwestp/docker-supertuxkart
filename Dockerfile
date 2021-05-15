@@ -44,7 +44,7 @@ WORKDIR /stk
 
 # Install libcurl dependency
 RUN apt-get update && \
-    apt-get install -y libcurl4-openssl-dev && \
+    apt-get install --no-install-recommends -y libcurl4-openssl-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy artifacts from build stage
