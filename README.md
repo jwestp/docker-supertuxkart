@@ -19,12 +19,12 @@ The image exposes ports 2759 (server) and 2757 (server discovery). The server sh
 ### Hosting a server in your local network
 
 ```
-$ docker run --name my-stk-server \
-             -d \
-             -p 2757:2757 \
-             -p 2759:2759 \
-             -v $(pwd)/server_config.xml:/stk/server_config.xml \
-             jwestp/supertuxkart:latest
+docker run --name my-stk-server \
+           -d \
+           -p 2757:2757 \
+           -p 2759:2759 \
+           -v $(pwd)/server_config.xml:/stk/server_config.xml \
+           jwestp/supertuxkart:latest
 ```
 
 ### Hosting a server on the internet
@@ -32,14 +32,14 @@ $ docker run --name my-stk-server \
 For hosting a server on the internet (by setting `wan-server` to `true` in the config file) it is required to log in with your STK account. You can register a free account [here](https://online.supertuxkart.net/register.php). Pass your username and password to the container via environment variables.
 
 ```
-$ docker run --name my-stk-server \
-             -d \
-             -p 2757:2757 \
-             -p 2759:2759 \
-             -v $(pwd)/server_config.xml:/stk/server_config.xml \
-             -e USERNAME=myusername \
-             -e PASSWORD=mypassword \
-             jwestp/supertuxkart:latest
+docker run --name my-stk-server \
+           -d \
+           -p 2757:2757 \
+           -p 2759:2759 \
+           -v $(pwd)/server_config.xml:/stk/server_config.xml \
+           -e USERNAME=myusername \
+           -e PASSWORD=mypassword \
+           jwestp/supertuxkart:latest
 ```
 
 ### Adding ai karts
@@ -47,18 +47,26 @@ $ docker run --name my-stk-server \
 You can add ai karts to your server by setting the environment variable `AI_KARTS` like shown in the following example:
 
 ```
-$ docker run --name my-stk-server \
-             -d \
-             -p 2757:2757 \
-             -p 2759:2759 \
-             -v $(pwd)/server_config.xml:/stk/server_config.xml \
-             -e USERNAME=myusername \
-             -e PASSWORD=mypassword \
-             -e AI_KARTS=4 \
-             jwestp/supertuxkart:latest
+docker run --name my-stk-server \
+           -d \
+           -p 2757:2757 \
+           -p 2759:2759 \
+           -v $(pwd)/server_config.xml:/stk/server_config.xml \
+           -e USERNAME=myusername \
+           -e PASSWORD=mypassword \
+           -e AI_KARTS=4 \
+           jwestp/supertuxkart:latest
 ```
 
 Please note that this does not work if you set a server password in the `server_config.xml`.
+
+### Accessing the network console
+
+You can access the interactive network console with the following command:
+
+```
+docker exec -it my-stk-server supertuxkart --connect-now=127.0.0.1:2759 --network-console
+```
 
 ### Using docker-compose
 
