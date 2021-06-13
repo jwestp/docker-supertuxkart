@@ -13,7 +13,8 @@ supertuxkart --server-config=server_config.xml &
 # Add ai kart background process if necessary
 if [[ -n ${AI_KARTS} ]]
 then
-    supertuxkart --connect-now=127.0.0.1:2759 --network-ai=${AI_KARTS} &
+    SERVER_PASSWORD=`cat server_config.xml | grep private-server-password | awk -F '"' '{print $2}'`
+    supertuxkart --connect-now=127.0.0.1:2759 --server-password=$SERVER_PASSWORD --network-ai=${AI_KARTS} &
 fi
 
 # Bring server process back into foreground

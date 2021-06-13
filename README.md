@@ -58,8 +58,6 @@ docker run --name my-stk-server \
            jwestp/supertuxkart:latest
 ```
 
-Please note that this does not work if you set a server password in the `server_config.xml`.
-
 ### Accessing the network console
 
 You can access the interactive network console with the following command:
