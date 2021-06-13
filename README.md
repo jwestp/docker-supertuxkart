@@ -66,6 +66,12 @@ You can access the interactive network console with the following command:
 docker exec -it my-stk-server supertuxkart --connect-now=127.0.0.1:2759 --network-console
 ```
 
+If your server is password secured use the following command:
+
+```
+docker exec -it my-stk-server supertuxkart --connect-now=127.0.0.1:2759 --server-password=MY_SERVER_PASSWORD --network-console
+```
+
 ### Using docker-compose
 
 Clone this repository and have a look into the `docker-compose.yml` to edit your credentials (username & password). If you want to run a public server without needing a password, you can remove the `environment` section with its corresponding entries.
